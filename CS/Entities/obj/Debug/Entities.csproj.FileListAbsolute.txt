@@ -1,0 +1,5 @@
+T:\LP2Farmacia\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\temp\LP2Farmacia\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\Cursos\2018-1\LP2\interfaces graficas\LP2Farmacia\Entities\bin\Debug\Entities.exe.config
+C:\temp\farmaciacs\CS\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\Cursos\2018-1\LP2\interfaces_graficas\farmaciacs\CS\Entities\bin\Debug\Entities.exe.config
