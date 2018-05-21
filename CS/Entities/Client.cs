@@ -3,66 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataStorage;
 
 namespace Entities
 {
     public class Client:Entity
     {
-        private int id;
         private string name;
+        private string surname;
+        private string dni;
+        private string district;
+        private string phoneNumber;
+        private string email;
         private int points;
-        private string address;
-        private int phoneNumber;
 
-        public Client(int id, string name, int points, string address, int phoneNumber)
-        {
-            this.id = id;
-            this.name = name;
-            this.points = points;
-            this.address = address;
-            this.phoneNumber = phoneNumber;
+        public Client(string name, string surname, string dni, string district, string phoneNumber, string email) {
+            this.name = name; this.surname = surname; this.dni = dni; this.district = district;
+            this.phoneNumber = phoneNumber; this.email = email;
         }
 
-        //getters y setters
-        public int Id
-        {
-            get { return this.id; }
-            set { this.id = value; }
-        }
-        public string Name
-        {
-            get { return this.name; }
-            set { this.name = value; }
-        }
-        public int Points
-        {
-            get { return this.points; }
-            set { this.points = value; }
-        }
-        public string Address
-        {
-            get { return this.address; }
-            set { this.address = value; }
-        }
-        public int PhoneNumber
-        {
-            get { return this.phoneNumber; }
-            set { this.phoneNumber = value; }
+        public string Name { get => name; set => name = value; }
+        public string Surname { get => surname; set => surname = value; }
+        public string Dni { get => dni; set => dni = value; }
+        public string District { get => district; set => district = value; }
+        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
+        public string Email { get => email; set => email = value; }
+        public int Points { get => points; set => points = value; }
+
+        public void addToBD() {
+            BDManager bdm = BDManager.getInstance();
+            List<Object> listParameters = new List<Object>();
+
+            listParameters.Add((Object)name);
+            listParameters.Add((Object)surname);
+            listParameters.Add((Object)dni);
+            listParameters.Add((Object)district);
+            listParameters.Add((Object)phoneNumber);
+            listParameters.Add((Object)email);
+            Console.WriteLine(name + " " + surname + " " + dni + " " + phoneNumber + " " + email);
+            bdm.AddUpdate("addToBDClient", listParameters);
         }
 
-        //Métodos
-        public void addToBD()
-        {
-
-        }
-        public void updateInBD()
-        {
-
-        }
-        public void deleteInBD()
-        {
+        public void deleteInBD() {
 
         }
 
+        public void updateInBD() {
+
+        }
     }
 }

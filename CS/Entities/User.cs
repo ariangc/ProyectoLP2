@@ -17,6 +17,8 @@ namespace Entities
         private UserType type; 
         private bool changePassword;
 
+        public User() { }
+
         public User(string email, string password, string fullName, int id, int phoneNumber, UserType type, bool changePassword)
         {
             this.email = email;

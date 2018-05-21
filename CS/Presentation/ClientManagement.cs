@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
 
 namespace Presentation
 {
@@ -29,16 +30,17 @@ namespace Presentation
             dniModify = nameModify = surnameModify = 0;
             InitializeComponent();
             this.CenterToScreen();
-
+            /*
             dataGridView1.Rows.Add(71205561,"Sergio André","Rivas Medina","Chorrillos",987976060,"sergio.rivas@pucp.pe");
             dataGridView1.Rows.Add(71205562, "Daniela", "Argumanis Escalante", "Santiago de Surco", 960312264, "daniela.argumanis@pucp.pe");
             dataGridView1.Rows.Add(71205563, "Arian", "Gallardo Callalli", "San Miguel", 993128246, "arian.gallardo@pucp.pe");
             dataGridView1.Rows.Add(71205564, "Pato", "Ávila", "Pueblo Libre", 999909704, "patricio.avila@pucp.pe");
             dataGridView1.Rows.Add(71205565, "Patrick", "Figueroa", "San Miguel", 95906115, "patrick.figueroa@pucp.pe");
             dataGridView1.Rows.Add(66666666, "Daniel Marcelo", "Chapi Alejo", "Magdalena", 944441181, "daniel.chapi@pucp.pe");
-            
-            
-    }
+            */
+
+            dataGridView1.AutoGenerateColumns = false;
+        }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
@@ -183,10 +185,10 @@ namespace Presentation
             }
 
             int i = 0;
-            string cad = dniTextBox.Text;
-            while (i < cad.Length)
+            string dni = dniTextBox.Text;
+            while (i < dni.Length)
             {
-                if (cad[i] < '0' || cad[i] > '9')
+                if (dni[i] < '0' || dni[i] > '9')
                 {
                     flagDNI = true;
                     break;
@@ -195,10 +197,10 @@ namespace Presentation
             }
 
             i = 0;
-            cad = phoneTextBox.Text;
-            while (i < cad.Length)
+            string phone = phoneTextBox.Text;
+            while (i < phone.Length)
             {
-                if (cad[i] < '0' || cad[i] > '9')
+                if (phone[i] < '0' || phone[i] > '9')
                 {
                     flagPhone = true;
                     break;
@@ -206,16 +208,21 @@ namespace Presentation
                 i++;
             }
 
-            if (dniTextBox.Text!="" && flagDNI)
-            {
+            if (dniTextBox.Text != "" && flagDNI) {
                 MessageBox.Show("El campo DNI debe ser un número", "Error en registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (phoneTextBox.Text!="" && flagPhone)
-            {
+            else if (phoneTextBox.Text != "" && flagPhone) {
                 MessageBox.Show("El campo teléfono debe ser un número", "Error en registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else {
+                string name = nameTextBox.Text;
+                string surname = lastnameTextBox.Text;
+                string district = districtTextBox.Text;
+                string email = emailTextBox.Text;
+                Client c = new Client(name, surname, dni, district, phone, email);
+                c.addToBD();
                 MessageBox.Show("El cliente ha sido registrado", "Registro de cliente nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void searchButon_Click(object sender, EventArgs e)

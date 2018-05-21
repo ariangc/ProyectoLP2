@@ -8,7 +8,7 @@ using static Utils.Enumerators;
 namespace Entities{
 	public class Sale : Transaction{
 		
-		public Sale(Product product, DateTime transactionDate, int productQuantity, DateTime expirationDate): base(product, transactionDate, productQuantity, expirationDate){
+		public Sale(List<Product> product, DateTime transactionDate, List<int> productQuantity, DateTime expirationDate): base(product, transactionDate, productQuantity, expirationDate){
 		}
 
 		public override void addToBD(){

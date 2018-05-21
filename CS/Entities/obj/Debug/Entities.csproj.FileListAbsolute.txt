@@ -3,3 +3,18 @@ C:\temp\LP2Farmacia\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.c
 C:\Users\Lenovo\Documents\Cursos\2018-1\LP2\interfaces graficas\LP2Farmacia\Entities\bin\Debug\Entities.exe.config
 C:\temp\farmaciacs\CS\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
 C:\Users\Lenovo\Documents\Cursos\2018-1\LP2\interfaces_graficas\farmaciacs\CS\Entities\bin\Debug\Entities.exe.config
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\Entities.dll.config
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\Entities.dll
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\Entities.pdb
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\DataStorage.dll
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\Utils.dll
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\MySql.Data.dll
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\DataStorage.pdb
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\DataStorage.dll.config
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\Utils.pdb
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\bin\Debug\Utils.dll.config
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\obj\Debug\Entities.csproj.CopyComplete
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\obj\Debug\Entities.dll
+C:\Users\arian\Desktop\proyectolp2\CS\Entities\obj\Debug\Entities.pdb

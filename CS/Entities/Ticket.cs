@@ -15,7 +15,7 @@ namespace Entities
         private int points;
 
         //Constructor, getters y setters
-        public Ticket(Product product, DateTime transactionDate, int productQuantity, DateTime expirationDate, int id, double igv, List<double> subtotal, double total, int points) : base(product, transactionDate, productQuantity, expirationDate)
+        public Ticket(List<Product> product, DateTime transactionDate, List<int> productQuantity, DateTime expirationDate, int id, double igv, List<double> subtotal, double total, int points) : base(product, transactionDate, productQuantity, expirationDate)
         {
             this.Id = id;
             this.Igv = igv;
