@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Java.Entities;
+package Entities;
 
 import java.util.Date;
 
@@ -13,8 +13,8 @@ import java.util.Date;
  */
 public class Sale extends Transaction {
 
-    public Sale(Product product, Date transactionDate, int productQuantity, Date expirationDate) {
-        super(product, transactionDate, productQuantity, expirationDate);
+    public Sale(String products, Date transactionDate, String productQuantity, Date expirationDate) {
+        super(products, transactionDate, productQuantity, expirationDate);
     }
 
     @Override

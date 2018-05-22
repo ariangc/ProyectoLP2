@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Java.Entities;
+package Entities;
 
 import java.util.Date;
 
@@ -17,8 +17,8 @@ public class SupplierOrder extends Transaction {
     private int stock;
     private int boxSize;
 
-    public SupplierOrder(Supplier supplier, int stock, int boxSize, Product product, Date transactionDate, int productQuantity, Date expirationDate) {
-        super(product, transactionDate, productQuantity, expirationDate);
+    public SupplierOrder(Supplier supplier, int stock, int boxSize, String products, Date transactionDate, String productQuantity, Date expirationDate) {
+        super(products, transactionDate, productQuantity, expirationDate);
         this.supplier = supplier;
         this.stock = stock;
         this.boxSize = boxSize;

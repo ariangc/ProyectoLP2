@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Java.Entities;
+package Entities;
 
 import java.util.Date;
 
@@ -13,13 +13,13 @@ import java.util.Date;
  */
 public abstract class Transaction implements Entity {
 
-    private Product product;
+    private String products;
     private Date transactionDate;
-    private int productQuantity;
+    private String productQuantity;
     private Date expirationDate;
 
-    public Transaction(Product product, Date transactionDate, int productQuantity, Date expirationDate) {
-        this.product = product;
+    public Transaction(String products, Date transactionDate, String productQuantity, Date expirationDate) {
+        this.products = products;
         this.transactionDate = transactionDate;
         this.productQuantity = productQuantity;
         this.expirationDate = expirationDate;
@@ -28,15 +28,15 @@ public abstract class Transaction implements Entity {
     /**
      * @return the product
      */
-    public Product getProduct() {
-        return product;
+    public String getProducts() {
+        return products;
     }
 
     /**
      * @param product the product to set
      */
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct(String products) {
+        this.products = products;
     }
 
     /**
@@ -56,14 +56,14 @@ public abstract class Transaction implements Entity {
     /**
      * @return the productQuantity
      */
-    public int getProductQuantity() {
+    public String getProductQuantity() {
         return productQuantity;
     }
 
     /**
      * @param productQuantity the productQuantity to set
      */
-    public void setProductQuantity(int productQuantity) {
+    public void setProductQuantity(String productQuantity) {
         this.productQuantity = productQuantity;
     }
 

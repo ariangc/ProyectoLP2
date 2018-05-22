@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Java.Entities;
-import java.util.*;
+package Entities;
 /**
  *
  * @author alulab14
@@ -15,17 +14,9 @@ public class Supplier implements Entity {
     private int phoneNumber;
     private String name;
     private String address;
-    private ArrayList<Product> products;
-
-    public Supplier(int id, int phoneNumber, String name, String address) {
-        this.id = id;
-        this.phoneNumber = phoneNumber;
-        this.name = name;
-        this.address = address;
-        this.products = new ArrayList<>();
-    }
+    private String products;
     
-    public Supplier(int id, int phoneNumber, String name, String address, ArrayList<Product> products) {
+    public Supplier(int id, int phoneNumber, String name, String address, String products) {
         this.id = id;
         this.phoneNumber = phoneNumber;
         this.name = name;
@@ -82,10 +73,6 @@ public class Supplier implements Entity {
         this.phoneNumber = phoneNumber;
     }
 
-    public void addProduct(Product product) {
-        products.add(product);
-    }
-    
     @Override
     public void addToBD() {
         System.out.println("addToBD ejecutado");
@@ -101,6 +88,20 @@ public class Supplier implements Entity {
         System.out.println("deleteInBD ejecutado");        
     }  int getId() {
         return id;
+    }
+
+    /**
+     * @return the products
+     */
+    public String getProducts() {
+        return products;
+    }
+
+    /**
+     * @param products the products to set
+     */
+    public void setProducts(String products) {
+        this.products = products;
     }
     
 }

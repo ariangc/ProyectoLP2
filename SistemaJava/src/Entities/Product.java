@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Java.Entities;
-
-import java.util.ArrayList;
+package Entities;
 
 /**
  *
@@ -14,22 +12,17 @@ import java.util.ArrayList;
 public class Product implements Entity {
     private int id;
     private String name;
-    private ArrayList<String> components = new ArrayList<>();
+    private String components;
     private double price;
     private boolean needsPrescription;
     private double utility;
     private int points;
+    private int totalItems;
+    private int minStock;
+    private int maxStock;
+    private String discounts;
 
-    public Product(int id, String name, double price, boolean needsPrescription, double utility, int points) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.needsPrescription = needsPrescription;
-        this.utility = utility;
-        this.points = points;
-    }
- 
-    public Product(int id, String name, ArrayList<String> components, double price, boolean needsPrescription, double utility, int points) {
+    public Product(int id, String name, String components, double price, boolean needsPrescription, double utility, int points, int totalItems, int minStock, int maxStock, String discounts) {
         this.id = id;
         this.name = name;
         this.components = components;
@@ -37,8 +30,12 @@ public class Product implements Entity {
         this.needsPrescription = needsPrescription;
         this.utility = utility;
         this.points = points;
+        this.totalItems = totalItems;
+        this.minStock = minStock;
+        this.maxStock = maxStock;
+        this.discounts = discounts;
     }
-
+    
     /**
      * @return the id
      */
@@ -65,20 +62,6 @@ public class Product implements Entity {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * @return the components
-     */
-    public ArrayList<String> getComponents() {
-        return components;
-    }
-
-    /**
-     * @param components the components to set
-     */
-    public void setComponents(ArrayList<String> components) {
-        this.components = components;
     }
 
     /**
@@ -152,8 +135,75 @@ public class Product implements Entity {
             System.out.println("Eliminando de la BD -> Producto");
     }
     
-    public void addComponent(String componentName) {
-        components.add(componentName);
+
+    /**
+     * @param components the components to set
+     */
+    public void setComponents(String components) {
+        this.components = components;
+    }
+
+    /**
+     * @return the totalItems
+     */
+    public int getTotalItems() {
+        return totalItems;
+    }
+
+    /**
+     * @param totalItems the totalItems to set
+     */
+    public void setTotalItems(int totalItems) {
+        this.totalItems = totalItems;
+    }
+
+    /**
+     * @return the minStock
+     */
+    public int getMinStock() {
+        return minStock;
+    }
+
+    /**
+     * @param minStock the minStock to set
+     */
+    public void setMinStock(int minStock) {
+        this.minStock = minStock;
+    }
+
+    /**
+     * @return the maxStock
+     */
+    public int getMaxStock() {
+        return maxStock;
+    }
+
+    /**
+     * @param maxStock the maxStock to set
+     */
+    public void setMaxStock(int maxStock) {
+        this.maxStock = maxStock;
+    }
+
+    /**
+     * @return the discounts
+     */
+    public String getDiscounts() {
+        return discounts;
+    }
+
+    /**
+     * @param discounts the discounts to set
+     */
+    public void setDiscounts(String discounts) {
+        this.discounts = discounts;
+    }
+
+    /**
+     * @return the components
+     */
+    public String getComponents() {
+        return components;
     }
     
 }
