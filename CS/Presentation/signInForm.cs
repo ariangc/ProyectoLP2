@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStorage;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -84,7 +85,10 @@ namespace Presentation
             }
             if (flag && us.Equals(Username))
             {
-                if (pass.Equals(Password))
+                //Conectar con la base de datos
+                BDManager bdm = BDManager.getInstance();
+                string password = bdm.passwordVerify(us);
+                if (pass.Equals(password))
                 {
                     //success login
                     UserSession session = new UserSession();

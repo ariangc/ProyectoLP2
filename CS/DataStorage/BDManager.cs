@@ -76,6 +76,34 @@ namespace DataStorage{
             return null;
         }
 
+        public string passwordVerify(string us)
+        {
+            string aux;
+            con.Open();
+            comando.CommandText = "SELECT Password FROM User WHERE Dni = " + us;
+            MySqlDataReader reader = comando.ExecuteReader();
+            reader.Read();
+            aux = reader.GetString("Password");
+            return aux;        
+        }
+
+        public void listarClientes()
+        {
+            con.Open();
+            comando.CommandText = "SELECT * FROM Client";
+            MySqlDataReader reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                //Client c = new Client();
+                string name = reader.GetString("Name");
+                string surname = reader.GetString("Surname");
+                string dni = reader.GetString("Dni");
+                string district = reader.GetString("District");
+                string phone = reader.GetString("PhoneNumber");
+                string email = reader.GetString("Email");
+            }
+        }
+
         public void AddUpdate(string procedureName, List<Object> parameters) {
             getParameterNames(procedureName);
             setProcedure(procedureName);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
+using DataStorage;
 
 namespace Presentation
 {
@@ -30,6 +31,12 @@ namespace Presentation
             dniModify = nameModify = surnameModify = 0;
             InitializeComponent();
             this.CenterToScreen();
+
+            //se añaden los datos de la base de datos al dataGriedView
+            BDManager bdm = BDManager.getInstance();
+            //bdm.listarClientes();
+
+
             /*
             dataGridView1.Rows.Add(71205561,"Sergio André","Rivas Medina","Chorrillos",987976060,"sergio.rivas@pucp.pe");
             dataGridView1.Rows.Add(71205562, "Daniela", "Argumanis Escalante", "Santiago de Surco", 960312264, "daniela.argumanis@pucp.pe");
@@ -219,9 +226,17 @@ namespace Presentation
                 string surname = lastnameTextBox.Text;
                 string district = districtTextBox.Text;
                 string email = emailTextBox.Text;
+
                 Client c = new Client(name, surname, dni, district, phone, email);
                 c.addToBD();
                 MessageBox.Show("El cliente ha sido registrado", "Registro de cliente nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dniTextBox.Text = "";
+                nameTextBox.Text = "";
+                lastnameTextBox.Text = "";
+                districtTextBox.Text = "";
+                phoneTextBox.Text = "";
+                emailTextBox.Text = "";
             }
         }
 

@@ -17,6 +17,10 @@ namespace Entities
         private string email;
         private int points;
 
+        public Client()
+        {
+
+        }
         public Client(string name, string surname, string dni, string district, string phoneNumber, string email) {
             this.name = name; this.surname = surname; this.dni = dni; this.district = district;
             this.phoneNumber = phoneNumber; this.email = email;

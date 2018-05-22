@@ -160,6 +160,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataStorage\DataStorage.csproj">
+      <Project>{13029224-1316-4440-9C12-36EA236F7EA8}</Project>
+      <Name>DataStorage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{1ab372da-bb3c-4483-bcf6-195799bce02c}</Project>
       <Name>Entities</Name>
