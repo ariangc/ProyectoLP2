@@ -11,16 +11,20 @@ package Entities;
  */
 public class Discount implements Entity {
     
+    private int id;
     private int clientPointsRequired;
     private String description;
     private int productId;
-    private double newPrice;
+    private double factor;
+    private int state;
 
-    public Discount(int clientPointsRequired, String description, int productId, double newPrice) {
+    public Discount(int id, int clientPointsRequired, String description, int productId, double factor, int state) {
+        this.id = id;
         this.clientPointsRequired = clientPointsRequired;
         this.description = description;
         this.productId = productId;
-        this.newPrice = newPrice;
+        this.factor = factor;
+        this.state = state;
     }
 
     /**
@@ -64,20 +68,6 @@ public class Discount implements Entity {
     public void setProductId(int productId) {
         this.productId = productId;
     }
-
-    /**
-     * @return the newPrice
-     */
-    public double getNewPrice() {
-        return newPrice;
-    }
-
-    /**
-     * @param newPrice the newPrice to set
-     */
-    public void setNewPrice(double newPrice) {
-        this.newPrice = newPrice;
-    }
     
     @Override
     public void addToBD() {
@@ -92,6 +82,48 @@ public class Discount implements Entity {
     @Override
     public void deleteInBD(){
         System.out.println("deleteInBD ejecutado");        
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the factor
+     */
+    public double getFactor() {
+        return factor;
+    }
+
+    /**
+     * @param factor the factor to set
+     */
+    public void setFactor(double factor) {
+        this.factor = factor;
+    }
+
+    /**
+     * @return the state
+     */
+    public int getState() {
+        return state;
+    }
+
+    /**
+     * @param state the state to set
+     */
+    public void setState(int state) {
+        this.state = state;
     }
 
     

@@ -5,13 +5,14 @@
  */
 package DataStorage;
 
-import Entities.Entity;
+import Entities.*;
 import Utils.Constants;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -99,12 +100,13 @@ public class BDManager {
 //        return list;
 //    }
 
-    public ArrayList selectBD(String procedureName, ArrayList parameters, String tag) {
+    public ArrayList selectBD(String table) {
         ArrayList<Entity> list = null;
         try {
-            setProcedure(procedureName);
-            setParameters(parameters);
-            list = getValues(tag, paramList);
+            con = DriverManager.getConnection(Constants.urlBD, Constants.userBD, Constants.passwordBD);
+            Statement stmt = con.createStatement();
+            String query = "SELECT * FROM " + table;
+            list = getValues(query, table);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(BDManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,29 +114,30 @@ public class BDManager {
         return list;
     }
 
-    public ArrayList<Entity> getValues(String tag, ArrayList<String> paramList) {
+    public ArrayList<Entity> getValues(String query, String table) {
         ArrayList<Entity> list = new ArrayList<>();
-        switch (tag) {
+        switch (table) {
             case "DISCOUNT":
-                list = getDiscounts(paramList);
+                list = getDiscounts(query);
                 break;
             case "PRODUCT":
-                list = getProducts(paramList);
+                list = getProducts(query);
                 break;
             case "SUPPLIER":
-                list = getSuppliers(paramList);
+                list = getSuppliers(query);
                 break;
             case "USER":
-                list = getUsers(paramList);
+                list = getUsers(query);
                 break;
             case "SALES":
-                list = getSales(paramList);
+                list = getSales(query);
                 break;
         }
         return list;
     }
 
-    private ArrayList<Entity> getDiscounts(ArrayList<String> paramList) {
+    private ArrayList<Entity> getDiscounts(String query) {
+        ArrayList<Entity> list = new ArrayList<>();
         try {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
@@ -144,25 +147,48 @@ public class BDManager {
                 int productId = rs.getInt("Product_IdProduct");
                 double factor = rs.getDouble("Factor");
                 int state = rs.getInt("State");
+                Entity discount = new Discount(id, points, description, productId, factor, state);
+                list.add(discount);
             }
         } catch (Exception ex) {
             System.out.println("Error al obtener descuentos");
         }
+        return list;
     }
 
-    private ArrayList<Entity> getProducts(ArrayList<String> paramList) {
+    private ArrayList<Entity> getProducts(String query) {
+        ArrayList<Entity> list = new ArrayList<>();
+        try {
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("IdProduct");
+                String name = rs.getString("Name");
+                double price = rs.getDouble("Price");
+                String exp = rs.getString("ExpirationDate");
+                int prescription = rs.getInt("NeedsPrescription");
+                double utility = rs.getDouble("Utility");
+                int points = rs.getInt("Points");
+                int total = rs.getInt("TotalItems");
+                int minStock = rs.getInt("MinStock");
+                int maxStock = rs.getInt("MaxStock");
+                int state = rs.getInt("State");
+                Entity product = new Product(id, name, price, exp, prescription, utility, points, total, minStock, maxStock, state);
+            }
+        } catch (Exception ex) {
+            System.out.println("Error al obtener descuentos");
+        }
+        return list;
+    }
+
+    private ArrayList<Entity> getSuppliers(String query) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private ArrayList<Entity> getSuppliers(ArrayList<String> paramList) {
+    private ArrayList<Entity> getUsers(String query) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private ArrayList<Entity> getUsers(ArrayList<String> paramList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private ArrayList<Entity> getSales(ArrayList<String> paramList) {
+    private ArrayList<Entity> getSales(String query) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

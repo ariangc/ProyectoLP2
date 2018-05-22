@@ -12,17 +12,24 @@ import java.util.Date;
  * @author alulab14
  */
 public class SupplierOrder extends Transaction {
-
+    private int id;
     private Supplier supplier;
-    private int stock;
-    private int boxSize;
+    private ArrayList<Package> packages;
 
-    public SupplierOrder(Supplier supplier, int stock, int boxSize, String products, Date transactionDate, String productQuantity, Date expirationDate) {
+    public SupplierOrder(int id, Supplier supplier, String products, Date transactionDate, String productQuantity, Date expirationDate) {
         super(products, transactionDate, productQuantity, expirationDate);
+        this.id = id;
         this.supplier = supplier;
-        this.stock = stock;
-        this.boxSize = boxSize;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     /**
      * @return the supplier
@@ -38,37 +45,7 @@ public class SupplierOrder extends Transaction {
         this.supplier = supplier;
     }
 
-    /**
-     * @return the stock
-     */
-    public int getStock() {
-        return stock;
-    }
 
-    /**
-     * @param stock the stock to set
-     */
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    /**
-     * @return the boxSize
-     */
-    public int getBoxSize() {
-        return boxSize;
-    }
-
-    /**
-     * @param boxSize the boxSize to set
-     */
-    public void setBoxSize(int boxSize) {
-        this.boxSize = boxSize;
-    }
-
-    private void maxStockWarning() {
-
-    }
 
     @Override
     public void addToBD() {

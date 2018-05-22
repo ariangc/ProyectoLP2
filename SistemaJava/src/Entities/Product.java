@@ -22,11 +22,11 @@ public class Product implements Entity {
     private int maxStock;
     private String discounts;
 
-    public Product(int id, String name, String components, double price, boolean needsPrescription, double utility, int points, int totalItems, int minStock, int maxStock, String discounts) {
+    public Product(int id, String name, double price, String components, boolean needsPrescription, double utility, int points, int totalItems, int minStock, int maxStock, String discounts) {
         this.id = id;
         this.name = name;
-        this.components = components;
         this.price = price;
+        this.components = components;
         this.needsPrescription = needsPrescription;
         this.utility = utility;
         this.points = points;

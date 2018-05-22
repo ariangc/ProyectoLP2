@@ -16,5 +16,7 @@ public class Constants {
     public static String passwordBD = "H9u1oC";
     
     //STORED PROCEDURES
-    public static String getParametersProcedure = "getParameterNames";
+    public static String addPackageProcedure = "addToBDPackage";
+    public static String modifyPackageProcedure = "updateInBDPackage";
+    public static String deletePackageProcedure = "deleteInBDPackage";
 }
